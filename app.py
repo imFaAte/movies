@@ -29,7 +29,7 @@ def main():
 
         elif choice == "0":
             save_movies(DATA_FILE, movies)
-            print("До свидания!")
+            print("Гуд бай америка!")
             break
 
         else:

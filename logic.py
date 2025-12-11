@@ -14,13 +14,23 @@ def load_movies(path: str) -> list[dict]:
 
 def save_movies(path: str, movies: list[dict]) -> None:
     """Сохранение списка фильмов в JSON-файл."""
-
-    pass
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(movies, f, ensure_ascii=False, indent=4)
 
 
 def add_movie(movies: list[dict], title: str, year: int) -> list[dict]:
     """Добавление нового фильма в список."""
-    pass
+    if movies:
+        max_id = max(movie['id'] for movie in movies)
+    else:
+        max_id = 0
+    new_movie = {
+        "id": max_id + 1,
+        "title": title,
+        "year": year,
+        "watched": False
+    }
+    return movies + [new_movie]
 
 
 def mark_watched(movies: list[dict], movie_id: int) -> list[dict]:
