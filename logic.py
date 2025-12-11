@@ -2,14 +2,12 @@ import json
 
 
 def load_movies(path: str) -> list[dict]:
-
     """Загрузка списка фильмов из JSON-файла."""
     try:
         with open(path, 'r', encoding='utf-8') as file:
             return json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
         return []
-
 
 
 def save_movies(path: str, movies: list[dict]) -> None:
@@ -35,9 +33,13 @@ def add_movie(movies: list[dict], title: str, year: int) -> list[dict]:
 
 def mark_watched(movies: list[dict], movie_id: int) -> list[dict]:
     """Отметить фильм как просмотренный."""
-    pass
+    for movie in movies:
+        if movie.get('id') == movie_id:
+            movie['watched'] = True
+            break
+    return movies
 
 
 def find_by_year(movies: list[dict], year: int) -> list[dict]:
     """Поиск всех фильмов указанного года."""
-    pass
+    return [movie for movie in movies if movie.get('year') == year]
