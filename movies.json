@@ -3,7 +3,7 @@
         "id": 1,
         "title": "The Matrix",
         "year": 1999,
-        "watched": false
+        "watched": true
     },
     {
         "id": 2,
@@ -39,6 +39,12 @@
         "id": 7,
         "title": "пофигу",
         "year": 1,
+        "watched": false
+    },
+    {
+        "id": 8,
+        "title": "2",
+        "year": 2,
         "watched": false
     }
 ]
